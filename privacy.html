@@ -1,41 +1,94 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Wahltrends privacy policy and YouTube API information.">
-  <title>Privacy Policy | Wahltrends</title>
+  <meta name="description" content="Datenschutzerklärung von Wahltrends und Informationen zur Verwendung der YouTube API Services.">
+  <title>Datenschutzerklärung | Wahltrends</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html">Wahltrends</a><div class="nav-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms / API information</a></div></nav></header>
-  <main class="page content">
-    <p class="eyebrow">Wahltrends</p>
-    <h1>Privacy Policy</h1>
-    <p><strong>Last updated:</strong> 19 August 2026</p>
-    <p>This policy describes the limited data practices of the Wahltrends website and its private YouTube API client.</p>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Wahltrends</a>
+      <div class="nav-links">
+        <a href="index.html">Projekt</a>
+        <a href="privacy.html" aria-current="page">Datenschutz</a>
+        <a href="terms.html">API-Hinweise</a>
+      </div>
+    </nav>
+  </header>
 
-    <h2>Website</h2>
-    <p>The website is a static GitHub Pages site. It does not provide user accounts, public login, forms, interactive API functionality or customer services. No personal information from external users is collected through this website. The site uses no analytics, tracking cookies, advertising technologies or other tracking tools.</p>
+  <main id="inhalt" class="document page">
+    <header class="document-header">
+      <p class="eyebrow">Wahltrends</p>
+      <h1>Datenschutzerklärung</h1>
+      <p class="document-intro">Diese Erklärung informiert über die Datenverarbeitung auf der öffentlichen Wahltrends-Website und bei der ausschließlich durch den Betreiber erfolgenden Nutzung der YouTube API Services.</p>
+      <p class="updated">Stand: 19. August 2026</p>
+    </header>
 
-    <h2>Private YouTube API client</h2>
-    <p>The Wahltrends API client uses <strong>YouTube API Services</strong>. It is a private tool used only by the operator to manage and upload Wahltrends videos to the operator's own authorized YouTube account and channel.</p>
-    <p>OAuth is used to authorize the application. The application may obtain the identity of the authorized channel and upload videos to that channel. It does not offer YouTube account authorization to members of the public, and no third party can authorize their YouTube account through this client.</p>
-    <p>OAuth credentials and tokens are stored privately as protected GitHub Actions secrets and are not exposed publicly. API data is used only for the stated operation of the private client. It is not sold or shared with third parties.</p>
+    <div class="document-layout">
+      <aside class="document-nav" aria-label="Inhalt dieser Seite">
+        <p>Auf dieser Seite</p>
+        <a href="#website">Website</a>
+        <a href="#youtube-api">YouTube API Services</a>
+        <a href="#datenverwendung">Datenverwendung</a>
+        <a href="#widerruf">Zugriff widerrufen</a>
+        <a href="#kontakt">Kontakt</a>
+      </aside>
 
-    <h2>Revoking access</h2>
-    <p>The operator can revoke the client's Google account permissions at any time through <a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener">Google's account security permissions page</a>. This page is also the appropriate place for an authorized account holder to review and revoke third-party access.</p>
+      <div class="document-content">
+        <section id="website">
+          <h2>1. Öffentliche Website</h2>
+          <p>Diese Website ist eine statische Informationsseite. Sie bietet keine Benutzerkonten, Anmeldefunktion, Formulare oder öffentlich nutzbare Software. Wahltrends erhebt über die Website nicht aktiv personenbezogene Daten und setzt keine eigenen Cookies ein.</p>
+          <p>Es werden keine Analyse-, Tracking-, Werbe- oder Marketingdienste verwendet. Die Website wird über GitHub Pages bereitgestellt. Beim Abruf können technisch erforderliche Verbindungsdaten durch den Hosting-Anbieter verarbeitet werden. Nähere Informationen enthält die <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub <span class="external" aria-hidden="true">↗</span></a>.</p>
+        </section>
 
-    <h2>Questions</h2>
-    <p>Questions or complaints about this privacy policy can be sent to <span class="placeholder">[OPERATOR EMAIL PLACEHOLDER]</span>. Replace this clearly marked placeholder with the operator's public contact email before publishing.</p>
+        <section id="youtube-api">
+          <h2>2. Verwendung der YouTube API Services</h2>
+          <p>Wahltrends verwendet YouTube API Services. Der zugehörige API-Client ist ein nicht öffentlich angebotenes Werkzeug und wird ausschließlich vom Betreiber selbst eingesetzt, um den eigenen autorisierten Wahltrends-Kanal zu verwalten.</p>
+          <p>Die Autorisierung erfolgt über OAuth. Der Client kann die Identität des autorisierten YouTube-Kanals abrufen und Videos auf diesen Kanal hochladen. Externe Nutzer können ihre Google- oder YouTube-Konten nicht mit Wahltrends verbinden.</p>
+        </section>
 
-    <h2>Related policies</h2>
-    <ul>
-      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-      <li><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a></li>
-      <li><a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener">Google page for revoking third-party account access</a></li>
-    </ul>
+        <section id="datenverwendung">
+          <h2>3. Verwendung und Schutz von API-Daten</h2>
+          <p>Über die YouTube API Services abgerufene Daten werden ausschließlich für die Verwaltung und Veröffentlichung von Inhalten auf dem eigenen Wahltrends-Kanal verwendet. API-Daten werden nicht verkauft und nicht zu Werbe- oder Marketingzwecken genutzt.</p>
+          <p>OAuth-Zugangsdaten und Autorisierungstoken werden nicht veröffentlicht und geschützt gespeichert. Der Zugriff ist auf den Betreiber und den beschriebenen Zweck beschränkt.</p>
+        </section>
+
+        <section id="widerruf">
+          <h2>4. OAuth-Zugriff verwalten und widerrufen</h2>
+          <p>Der erteilte OAuth-Zugriff kann jederzeit in den <a href="https://myaccount.google.com/connections" target="_blank" rel="noopener noreferrer">Google-Kontoeinstellungen für Verbindungen zu Drittanbietern <span class="external" aria-hidden="true">↗</span></a> eingesehen und widerrufen werden.</p>
+        </section>
+
+        <section id="richtlinien">
+          <h2>5. Richtlinien von Google und YouTube</h2>
+          <ul class="link-list">
+            <li><a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung <span class="external" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.youtube.com/t/terms?hl=de" target="_blank" rel="noopener noreferrer">YouTube-Nutzungsbedingungen <span class="external" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://myaccount.google.com/connections" target="_blank" rel="noopener noreferrer">Drittanbieterzugriff im Google-Konto verwalten <span class="external" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </section>
+
+        <section id="kontakt">
+          <h2>6. Kontakt</h2>
+          <p>Bei Fragen zu dieser Datenschutzerklärung kann der Betreiber über den öffentlich verlinkten <a href="https://www.youtube.com/@Wahltrends" target="_blank" rel="noopener noreferrer">Wahltrends-Kanal auf YouTube <span class="external" aria-hidden="true">↗</span></a> kontaktiert werden.</p>
+        </section>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer"><div class="site-footer-inner"><p>Wahltrends · Private project in Germany</p><p><a href="index.html">Home</a> · <a href="terms.html">Terms</a></p></div></footer>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner page">
+      <p><strong>Wahltrends</strong><br><span>Privat betriebenes Informationsprojekt aus Deutschland</span></p>
+      <nav class="footer-links" aria-label="Fußnavigation">
+        <a href="index.html">Projekt</a>
+        <a href="privacy.html" aria-current="page">Datenschutz</a>
+        <a href="terms.html">API-Hinweise</a>
+        <a href="https://www.youtube.com/@Wahltrends" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

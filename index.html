@@ -1,43 +1,102 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Public information about Wahltrends, a private project publishing factual summaries of German election polling trends.">
-  <title>Wahltrends | Public information</title>
+  <meta name="description" content="Wahltrends veröffentlicht kompakte, neutral dargestellte Trends aktueller deutscher Wahlumfragen.">
+  <title>Wahltrends | Deutsche Wahlumfragen kompakt dargestellt</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html">Wahltrends</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html" aria-current="page">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Wahltrends
+      </a>
       <div class="nav-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms / API information</a>
+        <a href="index.html" aria-current="page">Projekt</a>
+        <a href="privacy.html">Datenschutz</a>
+        <a href="terms.html">API-Hinweise</a>
       </div>
     </nav>
   </header>
-  <main class="page">
-    <section class="hero">
-      <p class="eyebrow">Public information</p>
-      <h1>Polling trends, explained simply.</h1>
-      <p class="lede">Wahltrends publishes factual summaries of current German election polling trends in short-form video.</p>
-      <div class="button-row">
-        <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube channel <span class="placeholder">[CHANNEL URL PLACEHOLDER]</span></a>
-        <a class="button secondary" href="privacy.html">Read the privacy policy</a>
+
+  <main id="inhalt">
+    <section class="hero page" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Wahlumfragen in Deutschland</p>
+        <h1 id="hero-title">Aktuelle Wahltrends, kompakt dargestellt.</h1>
+        <p class="lede">Wahltrends veröffentlicht regelmäßig sachliche Darstellungen der Trends aktueller deutscher Wahlumfragen auf den eigenen Social-Media-Kanälen.</p>
+        <div class="button-row">
+          <a class="button" href="https://www.youtube.com/@Wahltrends" target="_blank" rel="noopener noreferrer">Zum YouTube-Kanal <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://www.instagram.com/wahltrends/" target="_blank" rel="noopener noreferrer">Wahltrends auf Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Projektüberblick">
+        <p class="panel-label">Das Projekt auf einen Blick</p>
+        <dl class="project-data">
+          <div><dt>Grundlage</dt><dd>Öffentlich zugängliche Wahlumfragedaten</dd></div>
+          <div><dt>Darstellung</dt><dd>Automatisiert, kompakt und neutral</dd></div>
+          <div><dt>Betrieb</dt><dd>Privates Projekt aus Deutschland</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section page" aria-labelledby="ueber-wahltrends">
+      <div class="section-heading">
+        <p class="eyebrow">Über Wahltrends</p>
+        <h2 id="ueber-wahltrends">Öffentliche Daten verständlich aufbereitet</h2>
+      </div>
+      <div class="section-copy">
+        <p>Die veröffentlichten Inhalte basieren auf öffentlich zugänglichen Daten zu deutschen Wahlumfragen. Aus diesen Daten entstehen automatisiert kompakte Darstellungen, die aktuelle Entwicklungen neutral und ohne politische Wertung wiedergeben.</p>
+        <p>Wahltrends ist ein privat betriebenes Informationsprojekt in Deutschland. Die Inhalte werden auf den eigenen Social-Media-Kanälen veröffentlicht. Diese Website bietet einen Überblick über das Projekt sowie Informationen zum Datenschutz und zur Verwendung der YouTube API Services.</p>
       </div>
     </section>
-    <section class="facts" aria-label="Project facts">
-      <article class="fact"><h3>Public data</h3><p>Content is generated automatically from public polling data and presents current trends in a concise format.</p></article>
-      <article class="fact"><h3>Own channels</h3><p>Short-form videos are published to Wahltrends' own social-media channels, including its YouTube channel.</p></article>
-      <article class="fact"><h3>Private operation</h3><p>The project is operated privately by one individual in Germany. It provides no user accounts or public API access.</p></article>
+
+    <section class="feature-section" aria-label="Grundsätze von Wahltrends">
+      <div class="page feature-grid">
+        <article class="feature">
+          <span class="feature-number" aria-hidden="true">01</span>
+          <h3>Öffentliche Grundlage</h3>
+          <p>Verwendet werden öffentlich zugängliche Wahlumfragedaten.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number" aria-hidden="true">02</span>
+          <h3>Neutrale Darstellung</h3>
+          <p>Die Aufbereitung erfolgt automatisiert, sachlich und ohne politische Wertung.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number" aria-hidden="true">03</span>
+          <h3>Keine Benutzerkonten</h3>
+          <p>Wahltrends bietet keine öffentlich nutzbare Software, Anmeldung oder Kontoverknüpfung an.</p>
+        </article>
+      </div>
     </section>
-    <section class="content" style="margin-top: 4rem;">
-      <h2>About the API client</h2>
-      <p>Wahltrends uses a private YouTube API client to manage and upload content to the operator's own authorized YouTube account and channel. The client itself is not publicly accessible. No third party can authorize their YouTube account through it.</p>
-      <p>The website is informational only. It has no login, interactive API functionality, cookies, tracking, analytics or advertising.</p>
+
+    <section class="section page" aria-labelledby="youtube-api">
+      <div class="section-heading">
+        <p class="eyebrow">YouTube API Services</p>
+        <h2 id="youtube-api">Ausschließlich für den eigenen Kanal</h2>
+      </div>
+      <div class="section-copy">
+        <p>Der YouTube-API-Client dient ausschließlich der Verwaltung des eigenen Wahltrends-Kanals. Er wird nur vom Betreiber verwendet und ist kein öffentlich zugänglicher Dienst.</p>
+        <p>Besucher können sich weder anmelden noch ein Google- oder YouTube-Konto mit Wahltrends verbinden. Einzelheiten enthält die <a href="privacy.html">Datenschutzerklärung</a>; ergänzende Angaben stehen in den <a href="terms.html">Nutzungs- und API-Hinweisen</a>.</p>
+      </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="site-footer-inner"><p>Wahltrends · Private project in Germany</p><p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p></div></footer>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner page">
+      <p><strong>Wahltrends</strong><br><span>Privat betriebenes Informationsprojekt aus Deutschland</span></p>
+      <nav class="footer-links" aria-label="Fußnavigation">
+        <a href="index.html">Projekt</a>
+        <a href="privacy.html">Datenschutz</a>
+        <a href="terms.html">API-Hinweise</a>
+        <a href="https://www.youtube.com/@Wahltrends" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
