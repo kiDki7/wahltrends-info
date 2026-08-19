@@ -61,7 +61,7 @@ a:focus-visible { outline: 3px solid rgba(49, 93, 101, .3); outline-offset: 3px;
 
 .brand { display: inline-flex; flex: 0 0 auto; color: var(--ink); text-decoration: none; }
 .brand:hover { color: var(--ink); }
-.brand img { display: block; width: 3.45rem; height: 3.45rem; object-fit: contain; }
+.brand img { display: block; width: 9rem; height: auto; max-height: 3.45rem; object-fit: contain; }
 
 .header-tools {
   display: flex;

@@ -17,6 +17,13 @@ REQUIRED_ENV = (
     "WAHLTRENDS_LEGAL_ADDRESS",
     "WAHLTRENDS_CONTACT_EMAIL",
 )
+GENERATED_REPOSITORY_PATHS = (
+    Path("impressum.html"),
+    Path("en/legal-notice.html"),
+)
+ROBOTS_META = '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">'
+GOOGLEBOT_META = '<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">'
+UNRESOLVED_MARKER = re.compile(r"\{\{[A-Z_]+\}\}")
 
 
 def fail(message: str) -> None:
@@ -33,7 +40,7 @@ def render(template_path: Path, destination: Path, replacements: dict[str, str])
     content = template_path.read_text(encoding="utf-8")
     for marker, value in replacements.items():
         content = content.replace("{{" + marker + "}}", value)
-    if re.search(r"\{\{[A-Z_]+\}\}", content):
+    if UNRESOLVED_MARKER.search(content):
         fail("Legal notice template configuration is incomplete.")
     destination.write_text(content, encoding="utf-8", newline="\n")
 
@@ -41,6 +48,9 @@ def render(template_path: Path, destination: Path, replacements: dict[str, str])
 def main() -> None:
     if len(sys.argv) != 2:
         fail("A build output directory is required.")
+
+    if any((ROOT / path).exists() for path in GENERATED_REPOSITORY_PATHS):
+        fail("Generated legal notice files must not be stored in the repository.")
 
     output = Path(sys.argv[1]).resolve()
     if output == ROOT or ROOT in output.parents:
@@ -104,8 +114,13 @@ def main() -> None:
         fail("The site build is incomplete.")
     for page in html_files:
         content = page.read_text(encoding="utf-8")
-        if '<meta name="robots" content="noindex, nofollow">' not in content:
+        if ROBOTS_META not in content or GOOGLEBOT_META not in content:
             fail("The site build is missing required robots metadata.")
+        if UNRESOLVED_MARKER.search(content):
+            fail("The site build contains unresolved template markers.")
+    for page in (output / "impressum.html", output / "en" / "legal-notice.html"):
+        if "data-nosnippet" not in page.read_text(encoding="utf-8"):
+            fail("The legal notice is missing required snippet protection.")
 
     print("Static site build completed.")
 
