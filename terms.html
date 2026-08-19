@@ -41,7 +41,21 @@
 
       <section>
         <h2>2. YouTube API Services</h2>
-        <p>YouTube API Services werden ausschließlich durch den Betreiber zur Verwaltung des eigenen autorisierten Wahltrends-Kanals eingesetzt. Der API-Client wird nicht zur Nutzung durch Besucher oder sonstige Dritte angeboten.</p>
+        <p>YouTube API Services werden ausschließlich durch den Betreiber eingesetzt, um den eigenen autorisierten Wahltrends-Kanal zu validieren, den Status bereits hochgeladener Videos zu prüfen und vorbereitete Videos hochzuladen. Der API-Client wird nicht zur Nutzung durch Besucher oder sonstige Dritte angeboten.</p>
+        <p>Die OAuth-Konfiguration wird über die Umgebungsvariablen <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code> und <code>YOUTUBE_REFRESH_TOKEN</code> bereitgestellt; <code>YOUTUBE_CHANNEL_ID</code> ist eine nicht geheime Repository-Variable. Der Refresh Token wird nicht im Automation State gespeichert. Daraus erzeugte Access Tokens werden nur im Arbeitsspeicher gehalten.</p>
+        <p>Der Client verwendet ausschließlich die folgenden Google- und YouTube-Endpunkte:</p>
+        <ul class="plain-list">
+          <li><code>POST https://oauth2.googleapis.com/token</code></li>
+          <li><code>POST https://oauth2.googleapis.com/revoke</code></li>
+          <li><code>GET https://www.googleapis.com/youtube/v3/channels?part=id,snippet&amp;mine=true</code></li>
+          <li><code>GET https://www.googleapis.com/youtube/v3/videos?part=status&amp;id=…</code></li>
+          <li><code>POST https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&amp;part=snippet,status</code></li>
+          <li><code>PUT</code>-Anfragen an die von Google bereitgestellten URLs für fortsetzbare Upload-Sitzungen</li>
+        </ul>
+        <p>Ein Endpunkt zum Löschen von YouTube-Videos oder zum nachträglichen Ändern ihrer Sichtbarkeit wird nicht verwendet. Wenn <code>YOUTUBE_PUBLIC_PUBLISHING_ENABLED=true</code> gesetzt, die Autorisierung gültig ist und <code>YOUTUBE_CHANNEL_ID</code> mit dem autorisierten Kanal übereinstimmt, werden veröffentlichungsbereite Videos ohne Einzelbestätigung automatisch öffentlich veröffentlicht. Private Diagnoseläufe bleiben privat.</p>
+        <p>Im Automation State werden nur YouTube-Video-IDs im Plattform-Veröffentlichungsstatus und in der Veröffentlichungshistorie sowie bereinigte API-Fehlertexte gespeichert; Kanalinformationen und Refresh Tokens werden dort nicht gespeichert. Manuelle Diagnosen protokollieren Kanal- und Video-IDs in ihren Ausführungsprotokollen. Video-IDs und API-Fehler werden nach 21 Kalendertagen ohne Fristauffrischung lokal entfernt. Die Bereinigung erfolgt bei <code>weekly/run</code> und <code>publish-ready</code> ohne YouTube-API-Kontingent.</p>
+        <p><code>youtube-revoke</code> kann zunächst den Bot-State abrufen. Anschließend sendet der Ablauf den konfigurierten Refresh Token an Googles Widerrufs-Endpunkt, entfernt lokal gespeicherte YouTube-API-Daten sofort, speichert den Autorisierungsverlust in State-Schema 7, speichert und überträgt den bereinigten State und meldet bereinigte Zählwerte. Die Bereinigung läuft auch bei einem bereits ungültigen Token, während Persistenzfehler als Fehler gemeldet werden. Ein <code>invalid_grant</code> bei der OAuth-Aktualisierung löst dieselbe sofortige Bereinigung und eine Upload-Sperre aus; vorübergehende Netzwerk- und HTTP-5xx-Fehler nicht. Ein neuer gültiger Refresh Token ermöglicht dem nächsten aktivierten, veröffentlichungsbereiten Lauf, den Kanal neu zu validieren, die Markierung zu entfernen und die automatische Veröffentlichung fortzusetzen.</p>
+        <p>Dabei bleiben die interne Wahltrends-Historie sowie der Facebook- und Instagram-State erhalten; nur externe YouTube-IDs und YouTube-API-Fehler werden entfernt. Weder die lokale Bereinigung noch der OAuth-Widerruf löscht bereits bei YouTube gespeicherte Videos.</p>
         <p>Die Nutzung des YouTube-API-Clients unterliegt den <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube-Nutzungsbedingungen <span class="external" aria-hidden="true">↗</span></a>. Jede Nutzerin und jeder Nutzer des API-Clients ist an diese Bedingungen gebunden. Gegenwärtig ist der Betreiber die einzige nutzende Person. Ergänzende Angaben zur Datenverarbeitung enthält die <a href="privacy.html">Datenschutzerklärung</a>.</p>
       </section>
 

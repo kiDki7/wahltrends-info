@@ -41,7 +41,21 @@
 
       <section>
         <h2>2. YouTube API Services</h2>
-        <p>YouTube API Services are used exclusively by the operator to manage the operator's own authorized Wahltrends channel. The API client is not offered for use by visitors or any other third party.</p>
+        <p>YouTube API Services are used exclusively by the operator to validate the operator's own authorized Wahltrends channel, check the status of previously uploaded videos, and upload prepared videos. The API client is not offered for use by visitors or any other third party.</p>
+        <p>OAuth configuration is supplied through the <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code>, and <code>YOUTUBE_REFRESH_TOKEN</code> environment variables; <code>YOUTUBE_CHANNEL_ID</code> is a non-secret repository variable. The refresh token is not stored in Automation State. Access tokens created from it are held only in memory.</p>
+        <p>The client uses only the following Google and YouTube endpoints:</p>
+        <ul class="plain-list">
+          <li><code>POST https://oauth2.googleapis.com/token</code></li>
+          <li><code>POST https://oauth2.googleapis.com/revoke</code></li>
+          <li><code>GET https://www.googleapis.com/youtube/v3/channels?part=id,snippet&amp;mine=true</code></li>
+          <li><code>GET https://www.googleapis.com/youtube/v3/videos?part=status&amp;id=…</code></li>
+          <li><code>POST https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&amp;part=snippet,status</code></li>
+          <li><code>PUT</code> requests to Google-provided resumable-upload session URLs</li>
+        </ul>
+        <p>No endpoint for deleting YouTube videos or subsequently changing their visibility is used. When <code>YOUTUBE_PUBLIC_PUBLISHING_ENABLED=true</code>, authorization is valid, and <code>YOUTUBE_CHANNEL_ID</code> matches the authorized channel, publish-ready videos are automatically published publicly without per-video confirmation. Private diagnostic runs remain private.</p>
+        <p>Automation State stores only YouTube video IDs in platform publication state and publication history, plus sanitized API error text; channel information and refresh tokens are not stored there. Manual diagnostics log channel and video IDs in their execution logs. Video IDs and API errors are removed locally after 21 calendar days without refreshing their retention period. Cleanup runs during <code>weekly/run</code> and <code>publish-ready</code> without using YouTube API quota.</p>
+        <p><code>youtube-revoke</code> can first pull bot-state. It then sends the configured refresh token to Google's revocation endpoint, immediately removes locally stored YouTube API data, records authorization loss in State schema 7, saves and pushes the cleaned state, and reports sanitized counts. Cleanup proceeds even if the token is already invalid, while persistence failures are reported as errors. An <code>invalid_grant</code> during OAuth refresh triggers the same immediate cleanup and blocks uploads; temporary network and HTTP 5xx failures do not. A new valid refresh token allows the next enabled publish-ready run to revalidate the channel, clear the marker, and resume automatic publishing.</p>
+        <p>Internal Wahltrends history and Facebook and Instagram state remain intact; only external YouTube IDs and YouTube API errors are removed. Neither local cleanup nor OAuth revocation deletes videos already stored by YouTube.</p>
         <p>Use of the YouTube API client is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service <span class="external" aria-hidden="true">↗</span></a>. Every user of the API client is bound by those terms. The operator is currently the sole user. Further information about data processing is available in the <a href="privacy.html">Privacy Policy</a>.</p>
       </section>
 
