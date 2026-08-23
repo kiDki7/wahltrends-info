@@ -16,6 +16,7 @@ REQUIRED_ENV = (
     "WAHLTRENDS_LEGAL_NAME",
     "WAHLTRENDS_LEGAL_ADDRESS",
     "WAHLTRENDS_CONTACT_EMAIL",
+    "WAHLTRENDS_RESPONSIBLE_PERSON",
 )
 GENERATED_REPOSITORY_PATHS = (
     Path("impressum.html"),
@@ -77,20 +78,16 @@ def main() -> None:
     legal_name = html.escape(values["WAHLTRENDS_LEGAL_NAME"])
     legal_address = escaped_lines(values["WAHLTRENDS_LEGAL_ADDRESS"])
     contact_email = html.escape(email)
-    responsible = os.environ.get("WAHLTRENDS_RESPONSIBLE_PERSON", "").strip()
+    responsible_name = html.escape(values["WAHLTRENDS_RESPONSIBLE_PERSON"])
 
-    responsible_de = ""
-    responsible_en = ""
-    if responsible:
-        responsible_name = html.escape(responsible)
-        responsible_de = (
-            '<h3>Verantwortlich nach § 18 Abs. 2 Medienstaatsvertrag</h3>\n'
-            f'<p><strong>{responsible_name}</strong><br>{legal_address}</p>'
-        )
-        responsible_en = (
-            '<h3>Person responsible under section 18(2) of the German State Media Treaty</h3>\n'
-            f'<p><strong>{responsible_name}</strong><br>{legal_address}</p>'
-        )
+    responsible_de = (
+        '<h3>Verantwortlich nach § 18 Abs. 2 Medienstaatsvertrag</h3>\n'
+        f'<p><strong>{responsible_name}</strong><br>{legal_address}</p>'
+    )
+    responsible_en = (
+        '<h3>Person responsible under section 18(2) of the German State Media Treaty</h3>\n'
+        f'<p><strong>{responsible_name}</strong><br>{legal_address}</p>'
+    )
 
     common = {
         "LEGAL_NAME": legal_name,
