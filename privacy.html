@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Datenschutzerklärung von Wahltrends mit Informationen zur Website sowie zu YouTube API Services und einer möglichen künftigen TikTok-Anbindung.">
+  <meta name="description" content="Datenschutzerklärung von Wahltrends mit Informationen zur Website sowie zu eingesetzten und geplanten API-Diensten.">
   <title>Datenschutzerklärung | Wahltrends</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -29,8 +29,8 @@
     <header class="document-header">
       <p class="eyebrow">Wahltrends</p>
       <h1>Datenschutzerklärung</h1>
-      <p class="document-intro">Informationen zur öffentlichen Website, zur betreiberinternen Nutzung der YouTube API Services und zu einer lediglich möglichen künftigen TikTok-Anbindung.</p>
-      <p class="updated">Stand: 19. August 2026</p>
+      <p class="document-intro">Informationen zur öffentlichen Website sowie zu den von Wahltrends eingesetzten oder geplanten API-Diensten.</p>
+      <p class="updated">Stand: 23. August 2026</p>
     </header>
 
     <div class="document-content">
@@ -48,20 +48,28 @@
       </section>
 
       <section>
-        <h2>3. YouTube API Services und OAuth</h2>
+        <h2>3. Geplante Google Trends API und Wikipedia Pageviews</h2>
+        <p>Wahltrends plant für ein wöchentliches Format „Politiker im Trend“ die Nutzung der Google Trends API. Der Zugang befindet sich derzeit im Bewerbungs- beziehungsweise Alpha-Stadium und ist noch nicht produktiv in Wahltrends integriert.</p>
+        <p>Vorgesehen ist ausschließlich der Abruf aggregierter Trendwerte zum Suchinteresse nach ausgewählten politischen Personen und Begriffen mit geografischem Fokus auf Deutschland. Diese aggregierten Werte sollen mit ebenfalls aggregierten Seitenaufrufen aus der Wikimedia- beziehungsweise Wikipedia-Pageviews-Schnittstelle kombiniert werden, um einen eigenen wöchentlichen Wahltrends-Aufmerksamkeitsindex und Rangvergleiche zur Vorwoche zu berechnen.</p>
+        <p>Über die Google Trends API werden durch Wahltrends keine individuellen Suchanfragen, Google-Konten, IP-Adressen, Nutzerkennungen oder sonstigen personenbezogenen Daten von Google-Nutzern abgerufen. Auch über die Wikipedia-Pageviews-Schnittstelle werden keine individuellen Leserprofile abgerufen. Verarbeitet werden ausschließlich aggregierte Statistikwerte. Diese Daten werden nicht zur Profilbildung einzelner Personen oder Nutzer verwendet.</p>
+        <p>Die geplante Auswertung soll ausschließlich öffentliches Such- und Informationsinteresse abbilden. Sie dient nicht der Ermittlung oder Vorhersage individueller politischer Einstellungen. Weitere Informationen zur Datenverarbeitung durch Google enthält die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung <span class="external" aria-hidden="true">↗</span></a>. Weitere technische Hinweise zur geplanten Nutzung stehen in den <a href="terms.html">Nutzungs- und API-Hinweisen</a>.</p>
+      </section>
+
+      <section>
+        <h2>4. YouTube API Services und OAuth</h2>
         <p>Wahltrends verwendet YouTube API Services. Der YouTube-API-Client ist kein öffentlich angebotener Dienst. Er wird ausschließlich durch den Betreiber für dessen eigenen, von ihm autorisierten Wahltrends-Kanal verwendet; externe Besucher können weder über diese Website noch über den Client ein Google- oder YouTube-Konto autorisieren.</p>
         <p>Die Autorisierung erfolgt über OAuth und nur im Umfang der erteilten Berechtigungen. Der Client ruft die Identität des autorisierten Kanals und den Status bereits hochgeladener Videos ab und lädt vorbereitete Wahltrends-Videos auf diesen Kanal hoch. Wenn <code>YOUTUBE_PUBLIC_PUBLISHING_ENABLED=true</code> gesetzt, die Autorisierung gültig ist und <code>YOUTUBE_CHANNEL_ID</code> mit dem autorisierten Kanal übereinstimmt, erfolgt die öffentliche Veröffentlichung automatisch und ohne Bestätigung für jedes einzelne Video. Private Diagnoseläufe veröffentlichen nicht öffentlich.</p>
         <p>OAuth-Client-ID, Client-Secret und Refresh Token werden über die geschützten Umgebungsvariablen <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code> und <code>YOUTUBE_REFRESH_TOKEN</code> bereitgestellt. <code>YOUTUBE_CHANNEL_ID</code> ist eine nicht geheime Repository-Variable. Refresh Tokens werden nicht im Automation State gespeichert. Aus dem Refresh Token erzeugte Access Tokens werden ausschließlich im Arbeitsspeicher gehalten.</p>
       </section>
 
       <section>
-        <h2>4. Verwendung, Schutz und Weitergabe von YouTube-Daten</h2>
+        <h2>5. Verwendung, Schutz und Weitergabe von YouTube-Daten</h2>
         <p>Die Daten werden ausschließlich verwendet, um den eigenen autorisierten Wahltrends-Kanal zu bestätigen, vorbereitete Videos hochzuladen, ihren YouTube-Status zu prüfen und die Veröffentlichung intern nachzuhalten. Im Automation State werden aus der YouTube API ausschließlich YouTube-Video-IDs im Plattform-Veröffentlichungsstatus, YouTube-Video-IDs in Einträgen der Veröffentlichungshistorie und bereinigte YouTube-API-Fehlertexte gespeichert. Kanalinformationen werden dort nicht gespeichert. Manuelle Diagnoseläufe geben Kanal- und Video-IDs in ihren Ausführungsprotokollen aus.</p>
         <p>Der Client erhebt oder speichert keine YouTube-Anmeldedaten wie Benutzername oder Passwort. API-Daten werden nicht verkauft, nicht für Werbung oder Profilbildung verwendet und nicht unbefugt an Dritte weitergegeben. Daten werden nur an Google beziehungsweise YouTube übermittelt, soweit dies zur Nutzung der YouTube API Services erforderlich ist, oder wenn eine gesetzliche Pflicht besteht.</p>
       </section>
 
       <section>
-        <h2>5. Speicherung, Aktualisierung und Löschung von YouTube-API-Daten</h2>
+        <h2>6. Speicherung, Aktualisierung und Löschung von YouTube-API-Daten</h2>
         <p>Gespeicherte YouTube-Video-IDs und bereinigte API-Fehlertexte werden 21 Kalendertage nach ihrer Speicherung gelöscht; ihre Frist wird nicht aufgefrischt. Die lokale Bereinigung läuft bei <code>weekly/run</code> und <code>publish-ready</code> und verbraucht kein YouTube-API-Kontingent.</p>
         <p>Der Betreiber kann die Autorisierung mit <code>youtube-revoke</code> manuell widerrufen. Der Ablauf kann zunächst den Bot-State abrufen, sendet den konfigurierten Refresh Token an Googles Widerrufs-Endpunkt, entfernt sofort alle lokal gespeicherten YouTube-API-Daten, vermerkt den Autorisierungsverlust im State-Schema 7, speichert und überträgt den bereinigten State und meldet nur bereinigte Anzahlen. Auch ein bereits ungültiger Token verhindert die lokale Bereinigung nicht. Kann die Bereinigung nicht dauerhaft gespeichert werden, wird dies als Fehler gemeldet.</p>
         <p>Alternativ kann der Zugriff über die <a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener noreferrer">Google-Seite für Sicherheits- und Kontoberechtigungen <span class="external" aria-hidden="true">↗</span></a> entzogen werden. Antwortet die OAuth-Aktualisierung danach mit <code>invalid_grant</code>, behandelt der Client dies als Autorisierungsverlust: Er entfernt die gespeicherten YouTube-API-Daten sofort, speichert die entsprechende Markierung und blockiert weitere YouTube-Uploads. Vorübergehende Netzwerkfehler und HTTP-5xx-Antworten gelten nicht als Widerruf. Mit einem neuen gültigen Refresh Token validiert der nächste aktivierte, veröffentlichungsbereite Lauf den konfigurierten Kanal erneut, entfernt die Markierung und setzt die automatische Veröffentlichung fort.</p>
@@ -70,8 +78,8 @@
       </section>
 
       <section>
-        <h2>6. Google- und YouTube-Bedingungen</h2>
-        <p>Die Nutzung der YouTube API Services unterliegt zusätzlich den Bedingungen und Datenschutzbestimmungen von Google und YouTube:</p>
+        <h2>7. Google- und YouTube-Bedingungen</h2>
+        <p>Die Nutzung der YouTube API Services und eine künftige Nutzung der Google Trends API unterliegen zusätzlich den jeweils anwendbaren Bedingungen und Datenschutzbestimmungen von Google und YouTube:</p>
         <ul class="link-list">
           <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung <span class="external" aria-hidden="true">↗</span></a></li>
           <li><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube-Nutzungsbedingungen <span class="external" aria-hidden="true">↗</span></a></li>
@@ -80,14 +88,14 @@
       </section>
 
       <section>
-        <h2>7. TikTok Developer Services – derzeit nicht aktiv</h2>
+        <h2>8. TikTok Developer Services – derzeit nicht aktiv</h2>
         <p>Wahltrends nutzt die TikTok Developer Services derzeit nicht produktiv. Es werden aktuell keine TikTok-API-Daten, Zugriffs- oder Aktualisierungstokens verarbeitet, keine Inhalte automatisiert über eine TikTok API veröffentlicht und es liegt keine Aussage über eine erfolgreiche TikTok-Prüfung, Freigabe oder Auditierung vor.</p>
         <p>Eine künftige Anbindung käme erst nach der erforderlichen technischen Einrichtung, Autorisierung und – soweit erforderlich – Prüfung oder Freigabe durch TikTok in Betracht. Abhängig von der dann tatsächlich eingesetzten Funktion könnten ausschließlich für das autorisierte Veröffentlichen folgende Daten verarbeitet werden: <code>open_id</code>, Access Token und Refresh Token, für die Veröffentlichung erforderliche Creator-Informationen, Datenschutz- und Veröffentlichungsoptionen, Beitragsmetadaten, Veröffentlichungs-Identifier und -status sowie die zu übertragende Videodatei.</p>
         <p>Tokens und Secrets würden geschützt, serverseitig und nicht öffentlich zugänglich gespeichert. TikTok-Daten würden nur für den autorisierten Veröffentlichungszweck verwendet, nicht verkauft, nicht für Werbung oder Profilbildung genutzt und nur an TikTok, technisch notwendige Empfänger oder aufgrund gesetzlicher Verpflichtung weitergegeben. Die Autorisierung wäre widerruflich; nach Widerruf oder Beendigung würden nicht mehr erforderliche Daten nach den dann geltenden TikTok-Regeln und gesetzlichen Vorgaben gelöscht. Vor jeder produktiven Aktivierung wird diese Datenschutzerklärung an die tatsächlich umgesetzte Verarbeitung, Rechtsgrundlage, Empfänger und Speicherdauer angepasst.</p>
       </section>
 
       <section>
-        <h2>8. Rechte betroffener Personen</h2>
+        <h2>9. Rechte betroffener Personen</h2>
         <p>Betroffene Personen haben nach Maßgabe der gesetzlichen Voraussetzungen insbesondere das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit, soweit anwendbar (Art. 20 DSGVO), und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO). Eine erteilte Einwilligung kann mit Wirkung für die Zukunft widerrufen werden.</p>
         <p>Zur Ausübung dieser Rechte kann die Kontaktadresse im <a href="impressum.html">Impressum</a> verwendet werden. Soweit GitHub Daten in eigener Verantwortlichkeit verarbeitet, sind Anfragen unmittelbar an GitHub zu richten. Außerdem besteht nach Art. 77 DSGVO das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, insbesondere am gewöhnlichen Aufenthaltsort, Arbeitsplatz oder Ort des mutmaßlichen Verstoßes.</p>
       </section>
