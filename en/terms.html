@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Terms and API information for Wahltrends covering YouTube and a possible future TikTok integration.">
+  <meta name="description" content="Terms and API information for Wahltrends covering YouTube, the planned Google Trends API, and a possible future TikTok integration.">
   <title>Terms and API Information | Wahltrends</title>
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -29,18 +29,27 @@
     <header class="document-header">
       <p class="eyebrow">Wahltrends</p>
       <h1>Terms and API Information</h1>
-      <p class="document-intro">Information about the website, its use of YouTube API Services, and a possible future TikTok integration.</p>
-      <p class="updated">Last updated: 19 August 2026</p>
+      <p class="document-intro">Information about the Wahltrends information service and the API services currently used or planned.</p>
+      <p class="updated">Last updated: 23 August 2026</p>
     </header>
 
     <div class="document-content">
       <section>
         <h2>1. Project and website</h2>
-        <p>Wahltrends is a privately operated information project in Germany. The website is not a publicly offered API service. Visitors cannot create user accounts, log in, or authorize YouTube or TikTok accounts.</p>
+        <p>Wahltrends is a privately operated information project in Germany. The website is not a publicly offered API service. Visitors cannot create user accounts, log in, or authorize YouTube, Google Trends, or TikTok access.</p>
       </section>
 
       <section>
-        <h2>2. YouTube API Services</h2>
+        <h2>2. Planned Google Trends API and Wahltrends attention index</h2>
+        <p>Wahltrends plans to use the Google Trends API for a weekly “Politicians in Trend” format. API access is currently being requested under Google's alpha-access program. The feature has not yet been integrated into production.</p>
+        <p>The intended use is to retrieve aggregated Google Trends values for search interest in selected German politicians or clearly assigned political search terms. The analysis is intended to be limited to Germany as the geographic market and to use fixed weekly periods.</p>
+        <p>The Google Trends values are planned to be combined with aggregated Wikipedia page views. Wahltrends will use these data to calculate a proprietary attention index and a weekly ranking with changes compared with the previous week. Google Trends serves as a signal for active search interest, while Wikipedia page views serve as a complementary signal for information interest.</p>
+        <p>The resulting index measures public attention. It is expressly not a measure of popularity, approval, voting intention, or an election-outcome forecast. Wahltrends publishes its own calculations, rankings, and visualizations and does not provide third parties with access to the Google Trends API itself.</p>
+        <p>The planned Google Trends use does not retrieve individual search queries or personal data about Google users. Further information about the planned data processing is available in the <a href="privacy.html">Privacy Policy</a>. Use will take place only in accordance with the Google terms applicable at the time and the requirements of the alpha-access program.</p>
+      </section>
+
+      <section>
+        <h2>3. YouTube API Services</h2>
         <p>YouTube API Services are used exclusively by the operator to validate the operator's own authorized Wahltrends channel, check the status of previously uploaded videos, and upload prepared videos. The API client is not offered for use by visitors or any other third party.</p>
         <p>OAuth configuration is supplied through the <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code>, and <code>YOUTUBE_REFRESH_TOKEN</code> environment variables; <code>YOUTUBE_CHANNEL_ID</code> is a non-secret repository variable. The refresh token is not stored in Automation State. Access tokens created from it are held only in memory.</p>
         <p>The client uses only the following Google and YouTube endpoints:</p>
@@ -60,16 +69,16 @@
       </section>
 
       <section>
-        <h2>3. TikTok Developer Services – not currently active</h2>
+        <h2>4. TikTok Developer Services – not currently active</h2>
         <p>Wahltrends does not currently use TikTok Developer Services in production and does not offer TikTok publishing functionality. Future use would be considered only after complete technical setup, authorization of the relevant TikTok account, and any review, approval, or audit required by TikTok.</p>
         <p>Use of the TikTok platform by account holders is subject to the <a href="https://www.tiktok.com/legal/page/eea/terms-of-service/de" target="_blank" rel="noopener noreferrer">TikTok Terms of Service for the EEA <span class="external" aria-hidden="true">↗</span></a>. Any future use of TikTok Developer Services would additionally be subject to the <a href="https://www.tiktok.com/legal/page/global/tik-tok-developer-terms-of-service/en" target="_blank" rel="noopener noreferrer">TikTok Developer Terms of Service <span class="external" aria-hidden="true">↗</span></a>, the applicable developer policies, and TikTok documentation.</p>
         <p>Wahltrends is not affiliated with, sponsored by, endorsed by, or otherwise supported by TikTok unless TikTok expressly confirms otherwise. Preparing these legal pages does not constitute approval or endorsement by TikTok.</p>
       </section>
 
       <section>
-        <h2>4. Nature of the content</h2>
-        <p>Wahltrends presents published election polls and their development for informational purposes and in a factual manner. The content does not constitute a voting recommendation.</p>
-        <p>Polling figures reflect opinions at the time of each survey. They are neither a guarantee nor a prediction of the actual outcome of an election.</p>
+        <h2>5. Nature of the content</h2>
+        <p>Wahltrends presents published Bundestag and state-election polls, their development, and in future its own analyses of political search and information interest for informational purposes and in a factual manner. The content does not constitute a voting recommendation.</p>
+        <p>Polling figures reflect opinions at the time of each survey. They are neither a guarantee nor a prediction of the actual outcome of an election. The planned Wahltrends attention index describes relative attention only and must not be interpreted as a popularity, approval, or voting-intention score.</p>
       </section>
     </div>
   </main>
