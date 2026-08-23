@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Public project and API information for Wahltrends.">
+  <meta name="description" content="Public project and API information for Wahltrends, including federal and state polling trends and the planned political attention index.">
   <title>Project information | Wahltrends</title>
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -29,26 +29,35 @@
     <section class="intro">
       <p class="eyebrow">Project information</p>
       <h1>Wahltrends</h1>
-      <p class="lede">Wahltrends automatically prepares concise, factual summaries of current German election polls and their development. The summaries are based on publicly available polling data.</p>
+      <p class="lede">Wahltrends automatically prepares current German polling data and political trends as concise, traceable and factual social-media content. The content is based on publicly available data and is published on Wahltrends' own channels.</p>
     </section>
 
     <div class="info-grid">
       <section class="info-block">
-        <h2>About the project</h2>
-        <p>Content created from the polling data is published on Wahltrends' own social media channels. Wahltrends is a privately operated project in Germany.</p>
-        <p>The presentations provide neutral information about published polling figures and their development.</p>
-        <p>The Wahltrends trend includes all Bundestag polls from the previous 14 days, using only the most recent poll from each polling institute and weighting all institutes equally. For each party, it calculates the simple average of the values actually reported; missing values are not treated as zero, and changes are compared with the same 14-day trend from seven days earlier. New results are published weekly on Tuesdays at 7:00 p.m.</p>
+        <h2>Federal and state polling trends</h2>
+        <p>Wahltrends regularly publishes prepared polling trends for federal elections. Published state-level polls are now also processed for German states with upcoming state elections and published as separate state polling trends.</p>
+        <p>The federal trend includes all Bundestag polls from the previous 14 days, using only the most recent poll from each polling institute and weighting all institutes equally. For each party, the simple average of the values actually reported is calculated; missing values are not treated as zero. Changes are compared with the same 14-day trend from seven days earlier.</p>
+        <p>The visualizations provide neutral information about published polling figures and their development. Wahltrends is a privately operated project in Germany.</p>
       </section>
 
       <section class="info-block">
-        <h2>This website</h2>
-        <ul class="plain-list">
-          <li>does not offer user accounts or a public login,</li>
-          <li>does not provide a public API or upload function,</li>
-          <li>does not allow third parties to authorize their social media accounts.</li>
-        </ul>
+        <h2>Planned extension: Politicians in trend</h2>
+        <p>The next planned extension is a weekly attention ranking of German politicians. It is intended to show which politicians currently generate particularly strong public search and information interest.</p>
+        <p>The planned Wahltrends attention index is intended to combine Google Trends data on search interest in Germany with aggregated Wikipedia pageviews. Google Trends is intended as a signal for active search interest, while Wikipedia pageviews provide a complementary signal for information interest.</p>
+        <p>The Google Trends API would be used exclusively to retrieve aggregated trend values for selected political search terms, calculate weekly comparisons and a top-10 ranking, and publish the resulting visualizations on Wahltrends' own social-media channels. No personal Google user data would be retrieved, stored, or combined into user profiles.</p>
+        <p>The attention index is explicitly not intended to measure popularity, voting intention, or political approval. The Google Trends API is not yet integrated for this feature; API access is being requested for this planned extension.</p>
       </section>
     </div>
+
+    <section class="info-block">
+      <h2>This website</h2>
+      <ul class="plain-list">
+        <li>does not offer user accounts or a public login,</li>
+        <li>does not provide a public API or upload function,</li>
+        <li>does not allow third parties to authorize their social media accounts,</li>
+        <li>serves as the public project, privacy and API information page for Wahltrends.</li>
+      </ul>
+    </section>
 
     <section class="notice" aria-labelledby="youtube-api">
       <h2 id="youtube-api">YouTube API Services</h2>
