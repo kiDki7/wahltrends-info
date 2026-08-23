@@ -36,43 +36,30 @@
     <div class="document-content">
       <section>
         <h2>1. Project and website</h2>
-        <p>Wahltrends is a privately operated information project in Germany. The website is not a publicly offered API service. Visitors cannot create user accounts, log in, or authorize YouTube, Google Trends, or TikTok access.</p>
+        <p>Wahltrends is a privately operated information project in Germany. The website is not a publicly offered API service. Visitors cannot create user accounts, log in, or authorize external accounts through this website.</p>
       </section>
 
       <section>
         <h2>2. Planned Google Trends API and Wahltrends attention index</h2>
         <p>Wahltrends plans to use the Google Trends API for a weekly “Politicians in Trend” format. API access is currently being requested under Google's alpha-access program. The feature has not yet been integrated into production.</p>
-        <p>The intended use is to retrieve aggregated Google Trends values for search interest in selected German politicians or clearly assigned political search terms. The analysis is intended to be limited to Germany as the geographic market and to use fixed weekly periods.</p>
+        <p>The intended use is to retrieve aggregated Google Trends values for search interest in selected German politicians or clearly assigned political search terms. The analysis is intended to be limited to Germany and fixed weekly periods.</p>
         <p>The Google Trends values are planned to be combined with aggregated Wikipedia page views. Wahltrends will use these data to calculate a proprietary attention index and a weekly ranking with changes compared with the previous week. Google Trends serves as a signal for active search interest, while Wikipedia page views serve as a complementary signal for information interest.</p>
-        <p>The resulting index measures public attention. It is expressly not a measure of popularity, approval, voting intention, or an election-outcome forecast. Wahltrends publishes its own calculations, rankings, and visualizations and does not provide third parties with access to the Google Trends API itself.</p>
-        <p>The planned Google Trends use does not retrieve individual search queries or personal data about Google users. Further information about the planned data processing is available in the <a href="privacy.html">Privacy Policy</a>. Use will take place only in accordance with the Google terms applicable at the time and the requirements of the alpha-access program.</p>
+        <p>The resulting index measures public attention. It is not a measure of popularity, approval, voting intention, or an election-outcome forecast. Wahltrends publishes its own calculations, rankings, and visualizations and does not provide third parties with access to the Google Trends API itself.</p>
+        <p>Any use will take place only in accordance with the applicable Google terms and requirements of the alpha-access program. Further information is available in the <a href="privacy.html">Privacy Policy</a>.</p>
       </section>
 
       <section>
         <h2>3. YouTube API Services</h2>
-        <p>YouTube API Services are used exclusively by the operator to validate the operator's own authorized Wahltrends channel, check the status of previously uploaded videos, and upload prepared videos. The API client is not offered for use by visitors or any other third party.</p>
-        <p>OAuth configuration is supplied through the <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code>, and <code>YOUTUBE_REFRESH_TOKEN</code> environment variables; <code>YOUTUBE_CHANNEL_ID</code> is a non-secret repository variable. The refresh token is not stored in Automation State. Access tokens created from it are held only in memory.</p>
-        <p>The client uses only the following Google and YouTube endpoints:</p>
-        <ul class="plain-list">
-          <li><code>POST https://oauth2.googleapis.com/token</code></li>
-          <li><code>POST https://oauth2.googleapis.com/revoke</code></li>
-          <li><code>GET https://www.googleapis.com/youtube/v3/channels?part=id,snippet&amp;mine=true</code></li>
-          <li><code>GET https://www.googleapis.com/youtube/v3/videos?part=status&amp;id=…</code></li>
-          <li><code>POST https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&amp;part=snippet,status</code></li>
-          <li><code>PUT</code> requests to Google-provided resumable-upload session URLs</li>
-        </ul>
-        <p>No endpoint for deleting YouTube videos or subsequently changing their visibility is used. When <code>YOUTUBE_PUBLIC_PUBLISHING_ENABLED=true</code>, authorization is valid, and <code>YOUTUBE_CHANNEL_ID</code> matches the authorized channel, publish-ready videos are automatically published publicly without per-video confirmation. Private diagnostic runs remain private.</p>
-        <p>Automation State stores only YouTube video IDs in platform publication state and publication history, plus sanitized API error text; channel information and refresh tokens are not stored there. Manual diagnostics log channel and video IDs in their execution logs. Video IDs and API errors are removed locally after 21 calendar days without refreshing their retention period. Cleanup runs during <code>weekly/run</code> and <code>publish-ready</code> without using YouTube API quota.</p>
-        <p><code>youtube-revoke</code> can first pull bot-state. It then sends the configured refresh token to Google's revocation endpoint, immediately removes locally stored YouTube API data, records authorization loss in State schema 7, saves and pushes the cleaned state, and reports sanitized counts. Cleanup proceeds even if the token is already invalid, while persistence failures are reported as errors. An <code>invalid_grant</code> during OAuth refresh triggers the same immediate cleanup and blocks uploads; temporary network and HTTP 5xx failures do not. A new valid refresh token allows the next enabled publish-ready run to revalidate the channel, clear the marker, and resume automatic publishing.</p>
-        <p>Internal Wahltrends history and Facebook and Instagram state remain intact; only external YouTube IDs and YouTube API errors are removed. Neither local cleanup nor OAuth revocation deletes videos already stored by YouTube.</p>
-        <p>Use of the YouTube API client is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service <span class="external" aria-hidden="true">↗</span></a>. Every user of the API client is bound by those terms. The operator is currently the sole user. Further information about data processing is available in the <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>Wahltrends uses YouTube API Services exclusively for its own authorized Wahltrends channel. The service is used to upload prepared content, check publication status, and technically manage publishing. It is not offered as a public function for third parties.</p>
+        <p>Authorization is handled through Google OAuth. Access credentials and authorization tokens are stored securely. Google or YouTube accounts cannot be connected through the public Wahltrends website.</p>
+        <p>Wahltrends processes only the channel, video, and status information required to operate the YouTube integration. Further information about data processing, storage, and revocation is available in the <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>Use is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service <span class="external" aria-hidden="true">↗</span></a> and the applicable <a href="https://developers.google.com/youtube/terms/developer-policies" target="_blank" rel="noopener noreferrer">YouTube API Services Developer Policies <span class="external" aria-hidden="true">↗</span></a>.</p>
       </section>
 
       <section>
         <h2>4. TikTok Developer Services – not currently active</h2>
-        <p>Wahltrends does not currently use TikTok Developer Services in production and does not offer TikTok publishing functionality. Future use would be considered only after complete technical setup, authorization of the relevant TikTok account, and any review, approval, or audit required by TikTok.</p>
-        <p>Use of the TikTok platform by account holders is subject to the <a href="https://www.tiktok.com/legal/page/eea/terms-of-service/de" target="_blank" rel="noopener noreferrer">TikTok Terms of Service for the EEA <span class="external" aria-hidden="true">↗</span></a>. Any future use of TikTok Developer Services would additionally be subject to the <a href="https://www.tiktok.com/legal/page/global/tik-tok-developer-terms-of-service/en" target="_blank" rel="noopener noreferrer">TikTok Developer Terms of Service <span class="external" aria-hidden="true">↗</span></a>, the applicable developer policies, and TikTok documentation.</p>
-        <p>Wahltrends is not affiliated with, sponsored by, endorsed by, or otherwise supported by TikTok unless TikTok expressly confirms otherwise. Preparing these legal pages does not constitute approval or endorsement by TikTok.</p>
+        <p>Wahltrends does not currently use TikTok Developer Services in production. Future use would be considered only after the necessary technical setup, authorization, and any review or approval required by TikTok.</p>
+        <p>Any future use would be subject to the applicable TikTok terms, developer terms, and developer policies. Wahltrends is not affiliated with, sponsored by, or supported by TikTok unless TikTok expressly confirms otherwise.</p>
       </section>
 
       <section>
