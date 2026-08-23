@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Öffentliche Projekt- und API-Informationen zu Wahltrends.">
+  <meta name="description" content="Öffentliche Projekt- und API-Informationen zu Wahltrends, Bundestags- und Landtagstrends sowie dem geplanten politischen Aufmerksamkeitsindex.">
   <title>Projektinformationen | Wahltrends</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -32,28 +32,35 @@
     <section class="intro">
       <p class="eyebrow">Projektinformationen</p>
       <h1>Wahltrends</h1>
-      <p class="lede">Wahltrends bereitet aktuelle deutsche Wahlumfragen und ihre Entwicklung automatisiert und sachlich auf. Grundlage sind öffentlich verfügbare Wahlumfragedaten. </p>
+      <p class="lede">Wahltrends bereitet aktuelle deutsche Wahlumfragen und politische Trends automatisiert, nachvollziehbar und sachlich für Social Media auf. Die Inhalte basieren auf öffentlich verfügbaren Daten und werden auf den eigenen Wahltrends-Kanälen veröffentlicht.</p>
     </section>
 
     <div class="info-grid">
       <section class="info-block">
-        <h2>Über das Projekt</h2>
-        <p>Die aus den Umfragedaten erstellten Inhalte werden auf den eigenen Wahltrends-Social-Media-Kanälen veröffentlicht. Wahltrends ist ein privat betriebenes Projekt in Deutschland.</p>
-        <p>Die Darstellungen dienen der neutralen Information über veröffentlichte Umfragewerte und deren Entwicklung.</p>        <p>Für den Wahltrends-Trend werden alle Bundestagsumfragen der vergangenen 14 Tage berücksichtigt, wobei pro Institut nur die jeweils neueste Umfrage zählt und alle Institute gleich
-        gewichtet werden. Für jede Partei wird daraus der einfache Durchschnitt der tatsächlich ausgewiesenen Werte berechnet; fehlende Werte zählen nicht als 0, und Veränderungen werden
-        mit demselben 14-Tage-Trend sieben Tage zuvor verglichen.
-        Die Veröffentlichung findet wöchentlich Dienstags um 19:00 Uhr statt. </p>
+        <h2>Bundestags- und Landtagstrends</h2>
+        <p>Wahltrends veröffentlicht regelmäßig aufbereitete Umfragetrends zur Bundestagswahl. Zusätzlich werden inzwischen auch veröffentlichte Landtagsumfragen für Bundesländer mit anstehenden Landtagswahlen verarbeitet und als eigene Landtagstrends veröffentlicht.</p>
+        <p>Für den Bundestagstrend werden alle Bundestagsumfragen der vergangenen 14 Tage berücksichtigt, wobei pro Institut nur die jeweils neueste Umfrage zählt und alle Institute gleich gewichtet werden. Für jede Partei wird daraus der einfache Durchschnitt der tatsächlich ausgewiesenen Werte berechnet; fehlende Werte zählen nicht als 0. Veränderungen werden mit demselben 14-Tage-Trend sieben Tage zuvor verglichen.</p>
+        <p>Die Darstellungen dienen der neutralen Information über veröffentlichte Umfragewerte und deren Entwicklung. Wahltrends ist ein privat betriebenes Projekt in Deutschland.</p>
       </section>
 
       <section class="info-block">
-        <h2>Diese Website</h2>
-        <ul class="plain-list">
-          <li>bietet keine Benutzerkonten und keinen öffentlichen Login,</li>
-          <li>stellt keine öffentlich zugängliche API oder Upload-Funktion bereit,</li>
-          <li>ermöglicht Dritten keine Autorisierung ihrer Social-Media-Konten.</li>
-        </ul>
+        <h2>Geplante Erweiterung: Politiker im Trend</h2>
+        <p>Als nächste Erweiterung ist ein wöchentliches Aufmerksamkeitsranking deutscher Politikerinnen und Politiker geplant. Es soll zeigen, welche Personen aktuell besonders starkes öffentliches Such- und Informationsinteresse erzeugen.</p>
+        <p>Der geplante Wahltrends-Aufmerksamkeitsindex soll Google-Trends-Daten zum Suchinteresse in Deutschland mit aggregierten Wikipedia-Seitenaufrufen kombinieren. Google Trends ist dabei als Signal für aktives Suchinteresse vorgesehen, Wikipedia Pageviews als ergänzendes Signal für Informationsinteresse.</p>
+        <p>Die Google Trends API soll ausschließlich verwendet werden, um aggregierte Trendwerte für ausgewählte politische Suchbegriffe abzurufen, daraus einen wöchentlichen Vergleich und ein Top-10-Ranking zu berechnen und diese Ergebnisse als eigene Visualisierungen auf den Wahltrends-Social-Media-Kanälen zu veröffentlichen. Es werden keine personenbezogenen Google-Nutzerdaten abgerufen, gespeichert oder zu Nutzerprofilen zusammengeführt.</p>
+        <p>Der Aufmerksamkeitsindex soll ausdrücklich keine Beliebtheit, Wahlabsicht oder politische Zustimmung messen. Die Google-Trends-API ist für diese Funktion noch nicht integriert; der API-Zugang wird für diese geplante Erweiterung beantragt.</p>
       </section>
     </div>
+
+    <section class="info-block">
+      <h2>Diese Website</h2>
+      <ul class="plain-list">
+        <li>bietet keine Benutzerkonten und keinen öffentlichen Login,</li>
+        <li>stellt keine öffentlich zugängliche API oder Upload-Funktion bereit,</li>
+        <li>ermöglicht Dritten keine Autorisierung ihrer Social-Media-Konten,</li>
+        <li>dient als öffentliche Projekt-, Datenschutz- und API-Informationsseite für Wahltrends.</li>
+      </ul>
+    </section>
 
     <section class="notice" aria-labelledby="youtube-api">
       <h2 id="youtube-api">YouTube API Services</h2>
