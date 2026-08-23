@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Nutzungs- und API-Hinweise für Wahltrends zu YouTube und einer möglichen künftigen TikTok-Anbindung.">
+  <meta name="description" content="Nutzungs- und API-Hinweise für Wahltrends zu YouTube, der geplanten Google Trends API und einer möglichen künftigen TikTok-Anbindung.">
   <title>Nutzungs- und API-Hinweise | Wahltrends</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -29,18 +29,27 @@
     <header class="document-header">
       <p class="eyebrow">Wahltrends</p>
       <h1>Nutzungs- und API-Hinweise</h1>
-      <p class="document-intro">Hinweise zum Informationsangebot, zur Verwendung der YouTube API Services und zu einer möglichen künftigen TikTok-Anbindung.</p>
-      <p class="updated">Stand: 19. August 2026</p>
+      <p class="document-intro">Hinweise zum Informationsangebot sowie zu eingesetzten und geplanten API-Diensten.</p>
+      <p class="updated">Stand: 23. August 2026</p>
     </header>
 
     <div class="document-content">
       <section>
         <h2>1. Projekt und Website</h2>
-        <p>Wahltrends ist ein privat betriebenes Informationsprojekt in Deutschland. Die Website ist kein öffentlich angebotener API-Dienst. Besucher können keine Benutzerkonten anlegen, sich nicht anmelden und keine YouTube- oder TikTok-Konten autorisieren.</p>
+        <p>Wahltrends ist ein privat betriebenes Informationsprojekt in Deutschland. Die Website ist kein öffentlich angebotener API-Dienst. Besucher können keine Benutzerkonten anlegen, sich nicht anmelden und keine YouTube-, Google-Trends- oder TikTok-Zugänge autorisieren.</p>
       </section>
 
       <section>
-        <h2>2. YouTube API Services</h2>
+        <h2>2. Geplante Google Trends API und Wahltrends-Aufmerksamkeitsindex</h2>
+        <p>Wahltrends plant die Nutzung der Google Trends API für ein wöchentliches Format „Politiker im Trend“. Der API-Zugang wird derzeit im Rahmen des von Google angebotenen Alpha-Zugangs beantragt. Die Funktion ist noch nicht produktiv integriert.</p>
+        <p>Vorgesehen ist der Abruf aggregierter Google-Trends-Werte zum Suchinteresse nach ausgewählten deutschen Politikerinnen und Politikern beziehungsweise eindeutig zugeordneten politischen Suchbegriffen. Die Auswertung soll auf Deutschland als geografischen Markt begrenzt und in festen Wochenzeiträumen durchgeführt werden.</p>
+        <p>Die Google-Trends-Werte sollen mit aggregierten Wikipedia-Pageviews kombiniert werden. Daraus berechnet Wahltrends einen eigenen Aufmerksamkeitsindex und eine wöchentliche Rangliste mit Vergleich zur Vorwoche. Google Trends dient dabei als Signal für aktives Suchinteresse, Wikipedia Pageviews als ergänzendes Signal für Informationsinteresse.</p>
+        <p>Der daraus berechnete Index misst öffentliche Aufmerksamkeit. Er ist ausdrücklich kein Maß für Beliebtheit, Zustimmung, Wahlabsicht oder eine Wahlergebnisprognose. Veröffentlicht werden eigene Berechnungen, Ranglisten und Visualisierungen; Wahltrends stellt die Google Trends API selbst nicht Dritten zur Verfügung.</p>
+        <p>Über die geplante Google-Trends-Nutzung werden keine individuellen Suchanfragen oder personenbezogenen Google-Nutzerdaten abgerufen. Weitere Angaben zur geplanten Datenverarbeitung enthält die <a href="privacy.html">Datenschutzerklärung</a>. Die Nutzung erfolgt nur im Rahmen der jeweils geltenden Google-Bedingungen und der für den Alpha-Zugang festgelegten Vorgaben.</p>
+      </section>
+
+      <section>
+        <h2>3. YouTube API Services</h2>
         <p>YouTube API Services werden ausschließlich durch den Betreiber eingesetzt, um den eigenen autorisierten Wahltrends-Kanal zu validieren, den Status bereits hochgeladener Videos zu prüfen und vorbereitete Videos hochzuladen. Der API-Client wird nicht zur Nutzung durch Besucher oder sonstige Dritte angeboten.</p>
         <p>Die OAuth-Konfiguration wird über die Umgebungsvariablen <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code> und <code>YOUTUBE_REFRESH_TOKEN</code> bereitgestellt; <code>YOUTUBE_CHANNEL_ID</code> ist eine nicht geheime Repository-Variable. Der Refresh Token wird nicht im Automation State gespeichert. Daraus erzeugte Access Tokens werden nur im Arbeitsspeicher gehalten.</p>
         <p>Der Client verwendet ausschließlich die folgenden Google- und YouTube-Endpunkte:</p>
@@ -60,16 +69,16 @@
       </section>
 
       <section>
-        <h2>3. TikTok Developer Services – derzeit nicht aktiv</h2>
+        <h2>4. TikTok Developer Services – derzeit nicht aktiv</h2>
         <p>Wahltrends nutzt derzeit keine TikTok Developer Services produktiv und bietet keine TikTok-Veröffentlichungsfunktion an. Eine künftige Verwendung kommt nur nach vollständiger technischer Einrichtung, Autorisierung des betreffenden TikTok-Kontos sowie der jeweils erforderlichen Prüfung, Freigabe oder Auditierung durch TikTok in Betracht.</p>
         <p>Die Nutzung der TikTok-Plattform durch Kontoinhaber unterliegt den <a href="https://www.tiktok.com/legal/page/eea/terms-of-service/de" target="_blank" rel="noopener noreferrer">TikTok-Nutzungsbedingungen für den EWR <span class="external" aria-hidden="true">↗</span></a>. Eine künftige Nutzung der TikTok Developer Services unterläge zusätzlich den <a href="https://www.tiktok.com/legal/page/global/tik-tok-developer-terms-of-service/en" target="_blank" rel="noopener noreferrer">TikTok Developer Terms of Service <span class="external" aria-hidden="true">↗</span></a>, den jeweils geltenden Entwicklerrichtlinien und der TikTok-Dokumentation.</p>
         <p>Wahltrends ist nicht mit TikTok verbunden und wird von TikTok weder gesponsert noch empfohlen oder unterstützt, sofern TikTok dies nicht ausdrücklich bestätigt. Die bloße Vorbereitung dieser Rechtstexte bedeutet keine Freigabe oder Billigung durch TikTok.</p>
       </section>
 
       <section>
-        <h2>4. Einordnung der Inhalte</h2>
-        <p>Wahltrends stellt veröffentlichte Wahlumfragen und ihre Entwicklung informativ und sachlich dar. Die Inhalte stellen keine Wahlempfehlung dar.</p>
-        <p>Umfragewerte bilden Meinungen zum jeweiligen Erhebungszeitpunkt ab. Sie sind weder eine Garantie noch eine Vorhersage des tatsächlichen Ergebnisses einer Wahl.</p>
+        <h2>5. Einordnung der Inhalte</h2>
+        <p>Wahltrends stellt veröffentlichte Bundestags- und Landtagsumfragen, deren Entwicklung sowie künftig eigene Auswertungen zum politischen Such- und Informationsinteresse informativ und sachlich dar. Die Inhalte stellen keine Wahlempfehlung dar.</p>
+        <p>Umfragewerte bilden Meinungen zum jeweiligen Erhebungszeitpunkt ab. Sie sind weder eine Garantie noch eine Vorhersage des tatsächlichen Ergebnisses einer Wahl. Der geplante Wahltrends-Aufmerksamkeitsindex beschreibt ausschließlich relative Aufmerksamkeit und darf nicht als Beliebtheits-, Zustimmungs- oder Wahlabsichtswert interpretiert werden.</p>
       </section>
     </div>
   </main>
