@@ -68,11 +68,17 @@ def main() -> None:
     if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
         fail("Legal notice configuration is invalid.")
 
-    for filename in ("index.html", "privacy.html", "terms.html", "style.css"):
+    for filename in (
+        "index.html",
+        "privacy.html",
+        "terms.html",
+        "bildnachweise.html",
+        "style.css",
+    ):
         shutil.copy2(ROOT / filename, output / filename)
     shutil.copytree(ROOT / "assets", output / "assets")
     (output / "en").mkdir()
-    for filename in ("index.html", "privacy.html", "terms.html"):
+    for filename in ("index.html", "privacy.html", "terms.html", "image-credits.html"):
         shutil.copy2(ROOT / "en" / filename, output / "en" / filename)
 
     legal_name = html.escape(values["WAHLTRENDS_LEGAL_NAME"])
@@ -107,7 +113,7 @@ def main() -> None:
     )
 
     html_files = list(output.rglob("*.html"))
-    if len(html_files) != 8:
+    if len(html_files) != 10:
         fail("The site build is incomplete.")
     for page in html_files:
         content = page.read_text(encoding="utf-8")
