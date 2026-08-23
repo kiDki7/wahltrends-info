@@ -5,6 +5,6 @@
 This repository hosts the public information pages for the project, including details on **data sources, methodology, transparency, privacy, and legal information**.
 The goal is simple: make political polling trends accessible at a glance, while keeping the underlying data and methodology transparent on social Media
 
-Currently the Bot runs on Instagram and Facebook. I'm looking forward to include YouTube und Tiktok as soon as I pass the audits.
+Currently the Bot runs on Instagram and Facebook. I'm looking forward to include YouTube und Tiktok as soon as I gain API access.
 
 <https://kidki7.github.io/wahltrends-info/>
