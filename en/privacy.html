@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="description" content="Wahltrends Privacy Policy covering the website, YouTube API Services, and a possible future TikTok integration.">
+  <meta name="description" content="Wahltrends Privacy Policy covering the website and the API services currently used or planned by Wahltrends.">
   <title>Privacy Policy | Wahltrends</title>
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -29,8 +29,8 @@
     <header class="document-header">
       <p class="eyebrow">Wahltrends</p>
       <h1>Privacy Policy</h1>
-      <p class="document-intro">Information about the public website, the operator-only use of YouTube API Services, and a merely possible future TikTok integration.</p>
-      <p class="updated">Last updated: 19 August 2026</p>
+      <p class="document-intro">Information about the public website and the API services currently used or planned by Wahltrends.</p>
+      <p class="updated">Last updated: 23 August 2026</p>
     </header>
 
     <div class="document-content">
@@ -48,20 +48,28 @@
       </section>
 
       <section>
-        <h2>3. YouTube API Services and OAuth</h2>
+        <h2>3. Planned Google Trends API and Wikipedia Pageviews</h2>
+        <p>Wahltrends plans to use the Google Trends API for a weekly “Politicians in Trend” format. Access is currently at the application and alpha stage and has not yet been integrated into Wahltrends production systems.</p>
+        <p>The intended use is limited to retrieving aggregated trend values for search interest in selected political persons and terms, with a geographic focus on Germany. These aggregated values are planned to be combined with aggregated Wikimedia/Wikipedia page-view statistics in order to calculate a proprietary weekly Wahltrends attention index and rank changes compared with the previous week.</p>
+        <p>Wahltrends will not use the Google Trends API to obtain individual search queries, Google account data, IP addresses, user identifiers, or other personal data about Google users. Likewise, no individual reader profiles are obtained through the Wikipedia page-view interface. Only aggregated statistical values are processed. They are not used for profiling individual persons or users.</p>
+        <p>The planned analysis is intended solely to represent public search and information interest. It is not used to determine or predict individual political views. Further information about Google's processing is available in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy <span class="external" aria-hidden="true">↗</span></a>. Further technical information about the planned use is provided in the <a href="terms.html">Terms and API Information</a>.</p>
+      </section>
+
+      <section>
+        <h2>4. YouTube API Services and OAuth</h2>
         <p>Wahltrends uses YouTube API Services. The YouTube API client is not a publicly offered service. It is used exclusively by the operator for the operator's own authorized Wahltrends channel; external visitors cannot authorize a Google or YouTube account through either this website or the client.</p>
         <p>Authorization is handled through OAuth and is limited to the permissions granted. The client retrieves the identity of the authorized channel and the status of previously uploaded videos and uploads prepared Wahltrends videos to that channel. When <code>YOUTUBE_PUBLIC_PUBLISHING_ENABLED=true</code>, authorization is valid, and <code>YOUTUBE_CHANNEL_ID</code> matches the authorized channel, public publishing is automatic and requires no per-video confirmation. Private diagnostic runs do not publish publicly.</p>
         <p>The OAuth client ID, client secret, and refresh token are supplied through the protected <code>YOUTUBE_CLIENT_ID</code>, <code>YOUTUBE_CLIENT_SECRET</code>, and <code>YOUTUBE_REFRESH_TOKEN</code> environment variables. <code>YOUTUBE_CHANNEL_ID</code> is a non-secret repository variable. Refresh tokens are not stored in Automation State. Access tokens created from the refresh token are held only in memory.</p>
       </section>
 
       <section>
-        <h2>4. Use, protection, and sharing of YouTube data</h2>
+        <h2>5. Use, protection, and sharing of YouTube data</h2>
         <p>The data is used solely to confirm the operator's own authorized Wahltrends channel, upload prepared videos, check their YouTube status, and internally record publication. The only YouTube API-derived data stored in Automation State consists of YouTube video IDs in platform publication state, YouTube video IDs in publication-history records, and sanitized YouTube API error text. Channel information is not stored there. Manual diagnostics print channel and video IDs to their execution logs.</p>
         <p>The client does not collect or store YouTube login credentials such as usernames or passwords. API Data is not sold, used for advertising or profiling, or disclosed to third parties without authorization. Data is transmitted only to Google or YouTube where required to use YouTube API Services, or where disclosure is legally required.</p>
       </section>
 
       <section>
-        <h2>5. Storage, refresh, and deletion of YouTube API Data</h2>
+        <h2>6. Storage, refresh, and deletion of YouTube API Data</h2>
         <p>Stored YouTube video IDs and sanitized API error text are deleted 21 calendar days after storage; their retention period is not refreshed. Local cleanup runs during <code>weekly/run</code> and <code>publish-ready</code> and uses no YouTube API quota.</p>
         <p>The operator can manually revoke authorization with <code>youtube-revoke</code>. The procedure can first pull bot-state; it then sends the configured refresh token to Google's revocation endpoint, immediately removes all locally stored YouTube API data, records authorization loss in State schema 7, saves and pushes the cleaned state, and reports only sanitized counts. A token that is already invalid does not prevent local cleanup. A failure to persist the cleanup is reported as an error.</p>
         <p>Alternatively, access can be revoked through the <a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener noreferrer">Google security and account permissions page <span class="external" aria-hidden="true">↗</span></a>. If a subsequent OAuth refresh response contains <code>invalid_grant</code>, the client treats it as authorization loss: it immediately removes stored YouTube API data, persists the corresponding marker, and blocks further YouTube uploads. Temporary network failures and HTTP 5xx responses are not treated as revocation. With a new valid refresh token, the next enabled publish-ready run revalidates the configured channel, clears the marker, and resumes automatic publishing.</p>
@@ -70,8 +78,8 @@
       </section>
 
       <section>
-        <h2>6. Google and YouTube terms and policies</h2>
-        <p>Use of YouTube API Services is also subject to Google and YouTube terms and privacy policies:</p>
+        <h2>7. Google and YouTube terms and policies</h2>
+        <p>Use of YouTube API Services and any future use of the Google Trends API are additionally subject to the applicable Google and YouTube terms and privacy policies:</p>
         <ul class="link-list">
           <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy <span class="external" aria-hidden="true">↗</span></a></li>
           <li><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service <span class="external" aria-hidden="true">↗</span></a></li>
@@ -80,14 +88,14 @@
       </section>
 
       <section>
-        <h2>7. TikTok Developer Services – not currently active</h2>
+        <h2>8. TikTok Developer Services – not currently active</h2>
         <p>Wahltrends does not currently use TikTok Developer Services in production. No TikTok API data, access tokens, or refresh tokens are currently processed, no content is automatically published through a TikTok API, and no representation is made that TikTok review, approval, or audit has been successfully completed.</p>
         <p>A future integration would be considered only after the necessary technical setup, authorization, and any review or approval required by TikTok. Depending on the feature actually implemented at that time, the following data could be processed solely for authorized content posting: <code>open_id</code>, access token and refresh token, creator information needed for posting, privacy and posting options, post metadata, publishing identifier and status, and the video file to be transferred.</p>
         <p>Tokens and secrets would be protected, stored server-side, and kept inaccessible to the public. TikTok data would be used only for the authorized posting purpose, would not be sold or used for advertising or profiling, and would be shared only with TikTok, technically necessary recipients, or as legally required. Authorization would be revocable; data no longer required after revocation or termination would be deleted in accordance with the TikTok rules and legal requirements applicable at that time. Before any production activation, this Privacy Policy will be updated to reflect the actual processing, legal basis, recipients, and retention periods.</p>
       </section>
 
       <section>
-        <h2>8. Data subject rights</h2>
+        <h2>9. Data subject rights</h2>
         <p>Subject to the applicable legal requirements, data subjects have in particular the right of access (Article 15 GDPR), rectification (Article 16 GDPR), erasure (Article 17 GDPR), restriction of processing (Article 18 GDPR), data portability where applicable (Article 20 GDPR), and objection to processing based on legitimate interests (Article 21 GDPR). Consent may be withdrawn with effect for the future.</p>
         <p>These rights may be exercised using the contact address in the <a href="legal-notice.html">Legal Notice</a>. Where GitHub processes data under its own responsibility, requests must be directed to GitHub. Under Article 77 GDPR, data subjects also have the right to lodge a complaint with a data protection supervisory authority, in particular in the place of their habitual residence, place of work, or place of the alleged infringement.</p>
       </section>
