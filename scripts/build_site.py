@@ -25,6 +25,15 @@ GENERATED_REPOSITORY_PATHS = (
 ROBOTS_META = '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">'
 GOOGLEBOT_META = '<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">'
 UNRESOLVED_MARKER = re.compile(r"\{\{[A-Z_]+\}\}")
+LEGAL_ROBOTS_DISALLOWS = (
+    "Disallow: /impressum.html",
+    "Disallow: /en/legal-notice.html",
+)
+LEGAL_ROBOTS_SEARCH_ALLOW_BLOCKS = (
+    "User-agent: Googlebot\nAllow: /impressum.html\nAllow: /en/legal-notice.html",
+    "User-agent: bingbot\nAllow: /impressum.html\nAllow: /en/legal-notice.html",
+    "User-agent: OAI-SearchBot\nAllow: /impressum.html\nAllow: /en/legal-notice.html",
+)
 
 
 def fail(message: str) -> None:
@@ -74,6 +83,7 @@ def main() -> None:
         "terms.html",
         "bildnachweise.html",
         "style.css",
+        "robots.txt",
     ):
         shutil.copy2(ROOT / filename, output / filename)
     shutil.copytree(ROOT / "assets", output / "assets")
@@ -124,6 +134,15 @@ def main() -> None:
     for page in (output / "impressum.html", output / "en" / "legal-notice.html"):
         if "data-nosnippet" not in page.read_text(encoding="utf-8"):
             fail("The legal notice is missing required snippet protection.")
+
+    robots_path = output / "robots.txt"
+    if not robots_path.is_file():
+        fail("The site build is missing robots.txt.")
+    robots = robots_path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    if "User-agent: *" not in robots or any(rule not in robots for rule in LEGAL_ROBOTS_DISALLOWS):
+        fail("robots.txt is missing legal-notice crawler restrictions.")
+    if any(block not in robots for block in LEGAL_ROBOTS_SEARCH_ALLOW_BLOCKS):
+        fail("robots.txt is missing search-crawler exceptions required for noindex processing.")
 
     print("Static site build completed.")
 
