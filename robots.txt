@@ -1,0 +1,22 @@
+# Wahltrends crawler policy
+#
+# The legal-notice pages remain publicly reachable for users, but should not
+# be crawled by general-purpose bots, dataset crawlers, or AI training bots.
+# Major search crawlers are allowed to fetch these pages so they can process
+# the pages' existing noindex/nofollow/noarchive/nosnippet directives.
+
+User-agent: Googlebot
+Allow: /impressum.html
+Allow: /en/legal-notice.html
+
+User-agent: bingbot
+Allow: /impressum.html
+Allow: /en/legal-notice.html
+
+User-agent: OAI-SearchBot
+Allow: /impressum.html
+Allow: /en/legal-notice.html
+
+User-agent: *
+Disallow: /impressum.html
+Disallow: /en/legal-notice.html
