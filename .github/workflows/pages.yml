@@ -26,11 +26,6 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build static site
-        env:
-          WAHLTRENDS_LEGAL_NAME: ${{ secrets.WAHLTRENDS_LEGAL_NAME }}
-          WAHLTRENDS_LEGAL_ADDRESS: ${{ secrets.WAHLTRENDS_LEGAL_ADDRESS }}
-          WAHLTRENDS_CONTACT_EMAIL: ${{ secrets.WAHLTRENDS_CONTACT_EMAIL }}
-          WAHLTRENDS_RESPONSIBLE_PERSON: ${{ secrets.WAHLTRENDS_RESPONSIBLE_PERSON }}
         run: python3 scripts/build_site.py "$RUNNER_TEMP/wahltrends-site"
 
       - name: Upload GitHub Pages artifact
