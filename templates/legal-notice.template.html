@@ -34,11 +34,14 @@
 
     <div class="document-content">
       <section class="legal-contact" data-nosnippet>
-        <h2>Provider information under section 18(1) of the German State Media Treaty</h2>
-        <p><strong>{{LEGAL_NAME}}</strong><br>{{LEGAL_ADDRESS}}</p>
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:{{CONTACT_EMAIL_ATTRIBUTE}}">{{CONTACT_EMAIL}}</a></p>
-        {{RESPONSIBLE_SECTION}}
+        <h2>Provider information under section 18 of the German State Media Treaty</h2>
+        <iframe
+          class="legal-contact-frame"
+          src="https://wahltrends.duckdns.org/legal/contact.html"
+          title="Provider and contact information"
+          loading="eager"
+          referrerpolicy="no-referrer"></iframe>
+        <p class="legal-contact-fallback"><a href="https://wahltrends.duckdns.org/legal/contact.html" rel="nofollow noreferrer">Open provider information directly</a></p>
       </section>
     </div>
   </main>
