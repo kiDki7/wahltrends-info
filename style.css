@@ -161,6 +161,19 @@ p { margin-top: 0; }
 .legal-contact h2, .legal-contact h3 { color: var(--ink); }
 .legal-contact h3 { margin-top: 1.5rem; }
 
+.legal-contact-frame {
+  display: block;
+  width: 100%;
+  min-height: 15rem;
+  border: 0;
+  background: transparent;
+}
+
+.legal-contact-fallback {
+  margin-top: 1rem;
+  font-size: .82rem;
+}
+
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); }
 .site-footer-inner { display: flex; justify-content: space-between; gap: 2rem; align-items: center; padding-block: 2rem; color: var(--muted); font-size: .8rem; }
 .site-footer p { margin: 0; }
