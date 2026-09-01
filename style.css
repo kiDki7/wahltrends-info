@@ -164,14 +164,10 @@ p { margin-top: 0; }
 .legal-contact-frame {
   display: block;
   width: 100%;
-  min-height: 15rem;
+  height: 14.5rem;
   border: 0;
+  overflow: hidden;
   background: transparent;
-}
-
-.legal-contact-fallback {
-  margin-top: 1rem;
-  font-size: .82rem;
 }
 
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); }
