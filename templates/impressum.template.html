@@ -34,11 +34,14 @@
 
     <div class="document-content">
       <section class="legal-contact" data-nosnippet>
-        <h2>Angaben nach § 18 Abs. 1 Medienstaatsvertrag</h2>
-        <p><strong>{{LEGAL_NAME}}</strong><br>{{LEGAL_ADDRESS}}</p>
-        <h3>Kontakt</h3>
-        <p>E-Mail: <a href="mailto:{{CONTACT_EMAIL_ATTRIBUTE}}">{{CONTACT_EMAIL}}</a></p>
-        {{RESPONSIBLE_SECTION}}
+        <h2>Angaben nach § 18 Medienstaatsvertrag</h2>
+        <iframe
+          class="legal-contact-frame"
+          src="https://wahltrends.duckdns.org/legal/contact.html"
+          title="Anbieter- und Kontaktinformationen"
+          loading="eager"
+          referrerpolicy="no-referrer"></iframe>
+        <p class="legal-contact-fallback"><a href="https://wahltrends.duckdns.org/legal/contact.html" rel="nofollow noreferrer">Anbieterinformationen direkt öffnen</a></p>
       </section>
     </div>
   </main>
